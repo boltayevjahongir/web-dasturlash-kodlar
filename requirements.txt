@@ -1,0 +1,36 @@
+# Web freymvorklar
+flask>=3.1
+django>=6.0
+fastapi>=0.135
+uvicorn
+
+# Ma'lumotlar bazasi
+sqlalchemy>=2.0
+alembic>=1.18
+psycopg2-binary
+
+# Pydantic
+pydantic>=2.12
+
+# Flask kengaytmalari
+flask-sqlalchemy
+flask-migrate
+flask-login
+flask-wtf
+flask-restful
+
+# Django kengaytmalari
+djangorestframework
+
+# Autentifikatsiya
+python-jose[cryptography]
+passlib[bcrypt]
+
+# HTTP client
+httpx
+
+# Testing
+pytest
+coverage
+factory-boy
+faker
