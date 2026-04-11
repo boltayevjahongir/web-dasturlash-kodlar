@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 10-bob: Komponentlar — kartalar, tugmalar, alertlar -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap komponentlar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        <h1>Bootstrap komponentlar</h1>
+
+        <!-- Tugmalar -->
+        <h2 class="mt-4">Tugmalar</h2>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-danger">Danger</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-info">Info</button>
+
+        <h3 class="mt-3">Outline tugmalar</h3>
+        <button class="btn btn-outline-primary">Primary</button>
+        <button class="btn btn-outline-success">Success</button>
+        <button class="btn btn-outline-danger">Danger</button>
+
+        <h3 class="mt-3">O'lchamlar</h3>
+        <button class="btn btn-primary btn-lg">Katta</button>
+        <button class="btn btn-primary">Normal</button>
+        <button class="btn btn-primary btn-sm">Kichik</button>
+
+        <!-- Alertlar -->
+        <h2 class="mt-4">Alertlar</h2>
+        <div class="alert alert-success" role="alert">Muvaffaqiyat! Amal bajarildi.</div>
+        <div class="alert alert-danger" role="alert">Xato! Nimadir noto'g'ri ketdi.</div>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Ogohlantirish! Diqqat bilan o'qing.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <!-- Kartalar -->
+        <h2 class="mt-4">Kartalar</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">HTML</h5>
+                        <p class="card-text">Web sahifalar tuzilmasini yaratish uchun belgilash tili.</p>
+                        <a href="#" class="btn btn-primary">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">CSS</h5>
+                        <p class="card-text">Web sahifalarni bezash uchun stil tili.</p>
+                        <a href="#" class="btn btn-success">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">JavaScript</h5>
+                        <p class="card-text">Web sahifalarni interaktiv qilish uchun dasturlash tili.</p>
+                        <a href="#" class="btn btn-warning">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badge -->
+        <h2 class="mt-4">Badge</h2>
+        <h3>Xabarlar <span class="badge bg-danger">4</span></h3>
+        <span class="badge bg-primary">Primary</span>
+        <span class="badge bg-success">Success</span>
+        <span class="badge rounded-pill bg-info">Pill badge</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

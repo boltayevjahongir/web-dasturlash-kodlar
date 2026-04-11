@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 2-bob: Semantik teglar bilan sahifa yaratish -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantik HTML</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header { background-color: #1565c0; color: white; padding: 20px; }
+        nav { background-color: #1976d2; padding: 10px 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        main { padding: 20px; }
+        section { margin-bottom: 20px; }
+        article { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        aside { background-color: #f5f5f5; padding: 15px; border-radius: 5px; }
+        footer { background-color: #333; color: white; padding: 15px; text-align: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mening blogim</h1>
+        <p>Web dasturlash haqida maqolalar</p>
+    </header>
+
+    <nav>
+        <a href="#bosh">Bosh sahifa</a>
+        <a href="#maqolalar">Maqolalar</a>
+        <a href="#aloqa">Aloqa</a>
+    </nav>
+
+    <main>
+        <section id="maqolalar">
+            <h2>So'nggi maqolalar</h2>
+
+            <article>
+                <h3>HTML nima?</h3>
+                <p>HTML — veb sahifalar yaratish uchun ishlatiladigan belgilash tili.</p>
+                <time datetime="2026-04-01">2026-yil 1-aprel</time>
+            </article>
+
+            <article>
+                <h3>CSS nima?</h3>
+                <p>CSS — veb sahifalarni bezash uchun ishlatiladigan stil tili.</p>
+                <time datetime="2026-04-05">2026-yil 5-aprel</time>
+            </article>
+        </section>
+
+        <aside>
+            <h3>Foydali havolalar</h3>
+            <ul>
+                <li><a href="https://developer.mozilla.org">MDN Web Docs</a></li>
+                <li><a href="https://www.w3schools.com">W3Schools</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mening blogim. Barcha huquqlar himoyalangan.</p>
+    </footer>
+</body>
+</html>

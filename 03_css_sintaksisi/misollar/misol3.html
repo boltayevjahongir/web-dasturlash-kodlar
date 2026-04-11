@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 3-bob: Ranglar va shriftlar -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranglar va Shriftlar</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+
+        /* Rang turlari */
+        .hex-rang   { color: #e65100; }
+        .rgb-rang   { color: rgb(21, 101, 192); }
+        .rgba-rang  { color: rgba(198, 40, 40, 0.7); }
+        .hsl-rang   { color: hsl(120, 50%, 30%); }
+
+        /* Shrift xususiyatlari */
+        .serif      { font-family: 'Georgia', serif; font-size: 18px; }
+        .sans-serif { font-family: 'Helvetica', 'Arial', sans-serif; font-size: 18px; }
+        .monospace  { font-family: 'Courier New', monospace; font-size: 18px; }
+
+        /* Matn formatlash */
+        .qalin      { font-weight: bold; }
+        .kursiv     { font-style: italic; }
+        .katta      { font-size: 24px; }
+        .kichik     { font-size: 12px; }
+        .oraliq     { letter-spacing: 3px; }
+        .chiziq     { text-decoration: underline; }
+        .markaz     { text-align: center; }
+        .baland     { line-height: 2.0; }
+
+        .rang-box {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ranglar va Shriftlar</h1>
+
+    <h2>Rang turlari</h2>
+    <p class="hex-rang">HEX rang: #e65100 (to'q sariq)</p>
+    <p class="rgb-rang">RGB rang: rgb(21, 101, 192) (ko'k)</p>
+    <p class="rgba-rang">RGBA rang: rgba(198, 40, 40, 0.7) (yarim shaffof qizil)</p>
+    <p class="hsl-rang">HSL rang: hsl(120, 50%, 30%) (yashil)</p>
+
+    <h2>Rang palitralari</h2>
+    <div class="rang-box" style="background-color: #1565c0;">#1565c0</div>
+    <div class="rang-box" style="background-color: #2e7d32;">#2e7d32</div>
+    <div class="rang-box" style="background-color: #c62828;">#c62828</div>
+    <div class="rang-box" style="background-color: #6a1b9a;">#6a1b9a</div>
+    <div class="rang-box" style="background-color: #e65100;">#e65100</div>
+
+    <h2>Shrift turlari</h2>
+    <p class="serif">Serif shrift — Georgia</p>
+    <p class="sans-serif">Sans-serif shrift — Helvetica</p>
+    <p class="monospace">Monospace shrift — Courier New</p>
+
+    <h2>Matn formatlash</h2>
+    <p class="qalin">Qalin matn (bold)</p>
+    <p class="kursiv">Kursiv matn (italic)</p>
+    <p class="katta">Katta shrift (24px)</p>
+    <p class="kichik">Kichik shrift (12px)</p>
+    <p class="oraliq">Harflar oraliq (letter-spacing)</p>
+    <p class="chiziq">Tagiga chizilgan (underline)</p>
+    <p class="markaz">Markazga tekislangan</p>
+    <p class="baland">Baland qator oralig'i (line-height: 2.0) — Bu matn bir necha qatordan iborat bo'lganda oraliq katta bo'ladi.</p>
+</body>
+</html>

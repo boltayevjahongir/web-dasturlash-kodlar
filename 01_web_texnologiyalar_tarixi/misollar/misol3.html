@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 1-bob: HTTP so'rov va javob tushuntirishi -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP so'rov va javob</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .box { border: 2px solid #333; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .request { background-color: #e3f2fd; }
+        .response { background-color: #e8f5e9; }
+        pre { background-color: #263238; color: #e0e0e0; padding: 15px; border-radius: 5px; }
+        h2 { color: #1565c0; }
+    </style>
+</head>
+<body>
+    <h1>HTTP so'rov va javob</h1>
+
+    <div class="box request">
+        <h2>HTTP So'rov (Request)</h2>
+        <p>Brauzer serverga so'rov yuboradi:</p>
+        <pre>
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+Accept-Language: uz, en
+        </pre>
+    </div>
+
+    <div class="box response">
+        <h2>HTTP Javob (Response)</h2>
+        <p>Server brauzerga javob qaytaradi:</p>
+        <pre>
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1234
+Date: Sat, 11 Apr 2026 12:00:00 GMT
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;...&lt;/html&gt;
+        </pre>
+    </div>
+
+    <h2>Asosiy HTTP metodlari</h2>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>Metod</th>
+            <th>Tavsif</th>
+        </tr>
+        <tr><td>GET</td><td>Ma'lumot olish</td></tr>
+        <tr><td>POST</td><td>Ma'lumot yuborish</td></tr>
+        <tr><td>PUT</td><td>Ma'lumotni yangilash</td></tr>
+        <tr><td>DELETE</td><td>Ma'lumotni o'chirish</td></tr>
+    </table>
+</body>
+</html>

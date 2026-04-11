@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 7-bob: Brauzerda interaktiv shart va sikl -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shart va sikl</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .panel { border: 1px solid #ddd; padding: 20px; margin: 15px 0; border-radius: 8px; }
+        input { padding: 8px; margin: 5px; }
+        button { padding: 8px 16px; background-color: #1565c0; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        #kopaytirish, #fizzbuzz { background-color: #f5f5f5; padding: 15px; border-radius: 5px; font-family: monospace; white-space: pre; }
+    </style>
+</head>
+<body>
+    <h1>Shart va sikl misollari</h1>
+
+    <div class="panel">
+        <h2>Ko'paytirish jadvali</h2>
+        <label>Sonni kiriting (1-10): </label>
+        <input type="number" id="jadvalSon" min="1" max="10" value="5">
+        <button onclick="kopaytirish()">Ko'rsat</button>
+        <div id="kopaytirish"></div>
+    </div>
+
+    <div class="panel">
+        <h2>FizzBuzz</h2>
+        <p>1 dan N gacha: 3 ga bo'linsa "Fizz", 5 ga "Buzz", ikkalasiga "FizzBuzz"</p>
+        <label>N = </label>
+        <input type="number" id="fizzN" min="1" max="100" value="30">
+        <button onclick="fizzBuzz()">Boshlash</button>
+        <div id="fizzbuzz"></div>
+    </div>
+
+    <script>
+        function kopaytirish() {
+            let son = Number(document.getElementById("jadvalSon").value);
+            let natija = "";
+
+            for (let i = 1; i <= 10; i++) {
+                natija += `${son} x ${i} = ${son * i}\n`;
+            }
+
+            document.getElementById("kopaytirish").textContent = natija;
+        }
+
+        function fizzBuzz() {
+            let n = Number(document.getElementById("fizzN").value);
+            let natija = "";
+
+            for (let i = 1; i <= n; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    natija += "FizzBuzz ";
+                } else if (i % 3 === 0) {
+                    natija += "Fizz ";
+                } else if (i % 5 === 0) {
+                    natija += "Buzz ";
+                } else {
+                    natija += i + " ";
+                }
+                if (i % 10 === 0) natija += "\n";
+            }
+
+            document.getElementById("fizzbuzz").textContent = natija;
+        }
+    </script>
+</body>
+</html>

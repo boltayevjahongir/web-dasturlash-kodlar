@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 4-bob: Responsiv dizayn — media queries -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsiv dizayn</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #bbdefb;
+        }
+
+        .card h3 { color: #1565c0; margin-top: 0; }
+
+        .info-box {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e65100;
+            margin: 20px 0;
+        }
+
+        /* Planshet uchun — 768px va undan katta */
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Kompyuter uchun — 1024px va undan katta */
+        @media (min-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsiv dizayn</h1>
+
+    <div class="info-box">
+        <strong>Ko'rsatma:</strong> Brauzer oynasi kengligini o'zgartiring va kartalar joylashuvini kuzating.
+        <br>Mobil: 1 ustun | Planshet (768px+): 2 ustun | Kompyuter (1024px+): 3 ustun
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h3>Karta 1</h3>
+            <p>Bu birinchi karta. Responsiv grid yordamida joylashtirilgan.</p>
+        </div>
+        <div class="card">
+            <h3>Karta 2</h3>
+            <p>Ikkinchi karta. Ekran kengligiga qarab ustunlar soni o'zgaradi.</p>
+        </div>
+        <div class="card">
+            <h3>Karta 3</h3>
+            <p>Uchinchi karta. Media queries yordamida boshqariladi.</p>
+        </div>
+        <div class="card">
+            <h3>Karta 4</h3>
+            <p>To'rtinchi karta. Mobile-first yondashuvda yozilgan.</p>
+        </div>
+        <div class="card">
+            <h3>Karta 5</h3>
+            <p>Beshinchi karta.</p>
+        </div>
+        <div class="card">
+            <h3>Karta 6</h3>
+            <p>Oltinchi karta.</p>
+        </div>
+    </div>
+</body>
+</html>

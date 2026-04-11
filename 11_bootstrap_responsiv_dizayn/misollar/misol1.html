@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 11-bob: Responsiv utility sinflar va breakpointlar -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap responsiv sinflar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-4">
+        <h1>Responsiv utility sinflar</h1>
+
+        <!-- d-none / d-block -->
+        <h2 class="mt-4">Ko'rinish (display)</h2>
+        <div class="alert alert-primary d-none d-md-block">
+            Bu faqat md (768px) va undan katta ekranlarda ko'rinadi.
+        </div>
+        <div class="alert alert-success d-md-none">
+            Bu faqat kichik ekranlarda ko'rinadi (768px gacha).
+        </div>
+
+        <!-- Responsiv matn -->
+        <h2 class="mt-4">Matn tekislash</h2>
+        <p class="text-start text-md-center text-lg-end bg-light p-3">
+            Kichik: chapga | O'rta: markazga | Katta: o'ngga
+        </p>
+
+        <!-- order sinflar -->
+        <h2 class="mt-4">Tartib o'zgartirish (order)</h2>
+        <div class="row">
+            <div class="col-md-4 order-md-3">
+                <div class="alert alert-danger">1-element (kattada 3-chi)</div>
+            </div>
+            <div class="col-md-4 order-md-1">
+                <div class="alert alert-success">2-element (kattada 1-chi)</div>
+            </div>
+            <div class="col-md-4 order-md-2">
+                <div class="alert alert-warning">3-element (kattada 2-chi)</div>
+            </div>
+        </div>
+
+        <!-- Responsiv padding/margin -->
+        <h2 class="mt-4">Responsiv padding</h2>
+        <div class="bg-primary text-white p-2 p-md-4 p-lg-5 rounded">
+            Kichik: p-2 | O'rta: p-4 | Katta: p-5
+        </div>
+
+        <!-- Breakpointlar jadvali -->
+        <h2 class="mt-4">Bootstrap breakpointlar</h2>
+        <table class="table table-striped">
+            <thead class="table-primary">
+                <tr><th>Sinf</th><th>Kenglik</th><th>Qurilma</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>xs</td><td>&lt;576px</td><td>Telefon (portrait)</td></tr>
+                <tr><td>sm</td><td>&ge;576px</td><td>Telefon (landscape)</td></tr>
+                <tr><td>md</td><td>&ge;768px</td><td>Planshet</td></tr>
+                <tr><td>lg</td><td>&ge;992px</td><td>Noutbuk</td></tr>
+                <tr><td>xl</td><td>&ge;1200px</td><td>Katta monitor</td></tr>
+                <tr><td>xxl</td><td>&ge;1400px</td><td>Juda katta monitor</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

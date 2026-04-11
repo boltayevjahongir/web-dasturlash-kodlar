@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 5-bob: Brauzerda JS ishlatish — console va alert -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript brauzerda</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        #natija { background-color: #e8f5e9; padding: 20px; border-radius: 5px; margin-top: 15px; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; border: none; border-radius: 4px; color: white; }
+        .btn-blue { background-color: #1565c0; }
+        .btn-green { background-color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript brauzerda</h1>
+
+    <p>Brauzer konsolini oching (F12) va natijalarni kuzating.</p>
+
+    <button class="btn-blue" onclick="ozgaruvchilar()">O'zgaruvchilarni ko'rsat</button>
+    <button class="btn-green" onclick="ismSora()">Ismingizni kiriting</button>
+
+    <div id="natija">Natija shu yerda ko'rinadi...</div>
+
+    <script>
+        // Console ga chiqarish
+        console.log("Salom, JavaScript!");
+        console.warn("Bu ogohlantirish");
+        console.error("Bu xato xabari");
+
+        function ozgaruvchilar() {
+            let ism = "Talaba";
+            let yosh = 20;
+            let aktiv = true;
+
+            let natija = document.getElementById("natija");
+            natija.innerHTML = `
+                <p><strong>Ism:</strong> ${ism} (${typeof ism})</p>
+                <p><strong>Yosh:</strong> ${yosh} (${typeof yosh})</p>
+                <p><strong>Aktiv:</strong> ${aktiv} (${typeof aktiv})</p>
+            `;
+        }
+
+        function ismSora() {
+            let ism = prompt("Ismingizni kiriting:");
+            if (ism) {
+                let natija = document.getElementById("natija");
+                natija.innerHTML = `<p>Salom, <strong>${ism}</strong>! Xush kelibsiz.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

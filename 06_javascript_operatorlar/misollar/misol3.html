@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 6-bob: Ternary operator va amaliy misol — baho kalkulyatori -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baho kalkulyatori</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input { padding: 10px; font-size: 16px; width: 200px; }
+        button { padding: 10px 20px; background-color: #1565c0; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        #natija { margin-top: 15px; padding: 20px; border-radius: 5px; font-size: 18px; }
+        .alo { background-color: #e8f5e9; color: #2e7d32; }
+        .yaxshi { background-color: #e3f2fd; color: #1565c0; }
+        .qoniqarli { background-color: #fff3e0; color: #e65100; }
+        .qoniqarsiz { background-color: #ffebee; color: #c62828; }
+    </style>
+</head>
+<body>
+    <h1>Baho kalkulyatori</h1>
+    <p>Ballingizni kiriting (0-100):</p>
+
+    <input type="number" id="ball" min="0" max="100" placeholder="Ball kiriting">
+    <button onclick="baholaHisob()">Baholash</button>
+
+    <div id="natija"></div>
+
+    <script>
+        function baholaHisob() {
+            let ball = Number(document.getElementById("ball").value);
+            let natija = document.getElementById("natija");
+
+            // Ternary operator bilan baho aniqlash
+            let baho = ball >= 86 ? "A'lo (5)" :
+                       ball >= 71 ? "Yaxshi (4)" :
+                       ball >= 56 ? "Qoniqarli (3)" : "Qoniqarsiz (2)";
+
+            let sinf = ball >= 86 ? "alo" :
+                       ball >= 71 ? "yaxshi" :
+                       ball >= 56 ? "qoniqarli" : "qoniqarsiz";
+
+            // Ball to'g'riligini tekshirish (mantiqiy operatorlar)
+            let togri = ball >= 0 && ball <= 100;
+
+            if (!togri) {
+                natija.innerHTML = "Xato: ball 0 dan 100 gacha bo'lishi kerak!";
+                natija.className = "qoniqarsiz";
+                return;
+            }
+
+            natija.innerHTML = `Ball: <strong>${ball}</strong> — Baho: <strong>${baho}</strong>`;
+            natija.className = sinf;
+        }
+    </script>
+</body>
+</html>

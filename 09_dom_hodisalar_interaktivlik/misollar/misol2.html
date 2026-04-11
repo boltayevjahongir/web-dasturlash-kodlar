@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 9-bob: Hodisalar — addEventListener, event turlari -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodisalar (Events)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .panel { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .hover-box { width: 200px; height: 100px; background-color: #e3f2fd; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.3s; cursor: pointer; }
+        input { padding: 10px; margin: 5px; width: 300px; }
+        #log { background-color: #263238; color: #e0e0e0; padding: 15px; border-radius: 5px; font-family: monospace; max-height: 200px; overflow-y: auto; }
+        button { padding: 8px 16px; margin: 5px; cursor: pointer; border: none; border-radius: 4px; background-color: #1565c0; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Hodisalar (Events)</h1>
+
+    <div class="panel">
+        <h2>1. Click hodisasi</h2>
+        <button id="btn-click">Meni bosing</button>
+        <span id="click-natija"></span>
+    </div>
+
+    <div class="panel">
+        <h2>2. Input hodisasi</h2>
+        <input type="text" id="ism-input" placeholder="Ismingizni yozing...">
+        <p>Salom, <strong id="ism-display">...</strong>!</p>
+    </div>
+
+    <div class="panel">
+        <h2>3. Mouseover / Mouseout</h2>
+        <div class="hover-box" id="hover-box">Ustimga keling</div>
+    </div>
+
+    <div class="panel">
+        <h2>4. Keydown hodisasi</h2>
+        <input type="text" id="key-input" placeholder="Tugma bosing...">
+        <p id="key-info"></p>
+    </div>
+
+    <h2>Hodisalar logi</h2>
+    <button onclick="document.getElementById('log').textContent = ''">Tozalash</button>
+    <div id="log"></div>
+
+    <script>
+        function logga(xabar) {
+            let log = document.getElementById("log");
+            log.textContent += xabar + "\n";
+            log.scrollTop = log.scrollHeight;
+        }
+
+        // 1. Click
+        let bosishSoni = 0;
+        document.getElementById("btn-click").addEventListener("click", function(e) {
+            bosishSoni++;
+            document.getElementById("click-natija").textContent = ` — ${bosishSoni} marta bosildi`;
+            logga(`click: tugma bosildi (${bosishSoni})`);
+        });
+
+        // 2. Input
+        document.getElementById("ism-input").addEventListener("input", function(e) {
+            let qiymat = e.target.value || "...";
+            document.getElementById("ism-display").textContent = qiymat;
+            logga(`input: "${qiymat}"`);
+        });
+
+        // 3. Mouseover / Mouseout
+        let hoverBox = document.getElementById("hover-box");
+        hoverBox.addEventListener("mouseover", function() {
+            this.style.backgroundColor = "#1565c0";
+            this.style.color = "white";
+            this.textContent = "Ustimdasiz!";
+            logga("mouseover");
+        });
+        hoverBox.addEventListener("mouseout", function() {
+            this.style.backgroundColor = "#e3f2fd";
+            this.style.color = "#333";
+            this.textContent = "Ustimga keling";
+            logga("mouseout");
+        });
+
+        // 4. Keydown
+        document.getElementById("key-input").addEventListener("keydown", function(e) {
+            document.getElementById("key-info").textContent =
+                `Tugma: "${e.key}", Kod: "${e.code}", Ctrl: ${e.ctrlKey}, Shift: ${e.shiftKey}`;
+            logga(`keydown: key="${e.key}", code="${e.code}"`);
+        });
+    </script>
+</body>
+</html>

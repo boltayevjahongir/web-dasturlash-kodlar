@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 9-bob: Amaliy misol — Todo (vazifalar) ro'yxati -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo ro'yxati</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; max-width: 500px; }
+        h1 { color: #1565c0; }
+        .input-qator { display: flex; gap: 10px; margin-bottom: 15px; }
+        .input-qator input { flex: 1; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; }
+        .input-qator button { padding: 10px 20px; background-color: #1565c0; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; align-items: center; padding: 10px; margin: 5px 0; background-color: #f5f5f5; border-radius: 4px; }
+        li.bajarildi { text-decoration: line-through; opacity: 0.6; background-color: #e8f5e9; }
+        li span { flex: 1; cursor: pointer; }
+        li button { background-color: #c62828; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-left: 10px; }
+        .stats { color: #666; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Vazifalar ro'yxati</h1>
+
+    <div class="input-qator">
+        <input type="text" id="yangiVazifa" placeholder="Yangi vazifa kiriting...">
+        <button onclick="qoshish()">Qo'shish</button>
+    </div>
+
+    <ul id="royxat"></ul>
+    <p class="stats" id="stats"></p>
+
+    <script>
+        let vazifalar = [];
+
+        // Enter tugmasini tinglash
+        document.getElementById("yangiVazifa").addEventListener("keydown", function(e) {
+            if (e.key === "Enter") qoshish();
+        });
+
+        function qoshish() {
+            let input = document.getElementById("yangiVazifa");
+            let matn = input.value.trim();
+            if (!matn) return;
+
+            vazifalar.push({ matn: matn, bajarildi: false });
+            input.value = "";
+            input.focus();
+            yangilash();
+        }
+
+        function bajarildiToggle(index) {
+            vazifalar[index].bajarildi = !vazifalar[index].bajarildi;
+            yangilash();
+        }
+
+        function ochirish(index) {
+            vazifalar.splice(index, 1);
+            yangilash();
+        }
+
+        function yangilash() {
+            let royxat = document.getElementById("royxat");
+            royxat.innerHTML = "";
+
+            vazifalar.forEach((v, i) => {
+                let li = document.createElement("li");
+                if (v.bajarildi) li.classList.add("bajarildi");
+
+                let span = document.createElement("span");
+                span.textContent = v.matn;
+                span.onclick = () => bajarildiToggle(i);
+
+                let btn = document.createElement("button");
+                btn.textContent = "X";
+                btn.onclick = () => ochirish(i);
+
+                li.appendChild(span);
+                li.appendChild(btn);
+                royxat.appendChild(li);
+            });
+
+            // Statistika
+            let jami = vazifalar.length;
+            let bajarilgan = vazifalar.filter(v => v.bajarildi).length;
+            document.getElementById("stats").textContent =
+                `Jami: ${jami} | Bajarildi: ${bajarilgan} | Qoldi: ${jami - bajarilgan}`;
+        }
+    </script>
+</body>
+</html>

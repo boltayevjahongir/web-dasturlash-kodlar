@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 9-bob: DOM — element tanlash va o'zgartirish -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM asoslari</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .quti { padding: 20px; margin: 10px 0; border: 2px solid #ddd; border-radius: 8px; }
+        .yashil { background-color: #e8f5e9; border-color: #2e7d32; }
+        .qizil { background-color: #ffebee; border-color: #c62828; }
+        button { padding: 8px 16px; margin: 5px; cursor: pointer; border: none; border-radius: 4px; background-color: #1565c0; color: white; }
+        #yangi-elementlar { min-height: 50px; border: 1px dashed #ccc; padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1 id="sarlavha">DOM asoslari</h1>
+
+    <div id="demo" class="quti">
+        <p id="matn">Bu matn DOM orqali o'zgartiriladi.</p>
+    </div>
+
+    <button onclick="matnOzgartir()">Matnni o'zgartir</button>
+    <button onclick="rangOzgartir()">Rangni o'zgartir</button>
+    <button onclick="classToggle()">Class qo'sh/olib tashla</button>
+    <button onclick="elementYarat()">Yangi element yarat</button>
+
+    <div id="yangi-elementlar"></div>
+
+    <script>
+        // getElementById
+        function matnOzgartir() {
+            let matn = document.getElementById("matn");
+            matn.textContent = "Matn muvaffaqiyatli o'zgartirildi! (textContent)";
+        }
+
+        // style o'zgartirish
+        function rangOzgartir() {
+            let demo = document.getElementById("demo");
+            demo.style.backgroundColor = "#e3f2fd";
+            demo.style.borderColor = "#1565c0";
+            demo.style.color = "#1565c0";
+        }
+
+        // classList
+        function classToggle() {
+            let demo = document.getElementById("demo");
+            demo.classList.toggle("yashil");
+        }
+
+        // createElement va appendChild
+        let hisobchi = 0;
+        function elementYarat() {
+            hisobchi++;
+            let yangi = document.createElement("p");
+            yangi.textContent = `Yangi element #${hisobchi} — createElement bilan yaratildi`;
+            yangi.style.padding = "8px";
+            yangi.style.backgroundColor = "#fff3e0";
+            yangi.style.borderRadius = "4px";
+            yangi.style.margin = "5px 0";
+
+            // O'chirish tugmasi
+            let btn = document.createElement("button");
+            btn.textContent = "O'chirish";
+            btn.style.marginLeft = "10px";
+            btn.style.fontSize = "12px";
+            btn.onclick = function() { yangi.remove(); };
+            yangi.appendChild(btn);
+
+            document.getElementById("yangi-elementlar").appendChild(yangi);
+        }
+    </script>
+</body>
+</html>

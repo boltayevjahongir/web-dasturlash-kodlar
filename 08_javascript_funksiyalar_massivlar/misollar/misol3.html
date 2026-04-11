@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 8-bob: Amaliy misol — talabalar ro'yxati -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talabalar ro'yxati</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #1565c0; color: white; }
+        tr:nth-child(even) { background-color: #f5f5f5; }
+        .stats { background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        button { padding: 8px 16px; margin: 5px; cursor: pointer; border: none; border-radius: 4px; color: white; }
+        .btn-all { background-color: #1565c0; }
+        .btn-alo { background-color: #2e7d32; }
+        .btn-sort { background-color: #e65100; }
+    </style>
+</head>
+<body>
+    <h1>Talabalar ro'yxati</h1>
+
+    <button class="btn-all" onclick="hammasiniKorsat()">Hammasi</button>
+    <button class="btn-alo" onclick="aloTalabalar()">Faqat a'lochilar</button>
+    <button class="btn-sort" onclick="saralash()">Ball bo'yicha saralash</button>
+
+    <div class="stats" id="stats"></div>
+    <table>
+        <thead>
+            <tr><th>#</th><th>Ism</th><th>Ball</th><th>Baho</th></tr>
+        </thead>
+        <tbody id="jadval"></tbody>
+    </table>
+
+    <script>
+        const talabalar = [
+            { ism: "Ali Valiyev", ball: 92 },
+            { ism: "Gulnora Karimova", ball: 78 },
+            { ism: "Jasur Toshmatov", ball: 65 },
+            { ism: "Dilnoza Rahimova", ball: 88 },
+            { ism: "Bobur Saidov", ball: 45 },
+            { ism: "Malika Umarova", ball: 95 },
+            { ism: "Sardor Nazarov", ball: 71 },
+            { ism: "Ziyoda Aliyeva", ball: 83 },
+        ];
+
+        // Baho funksiyasi
+        const baho = (ball) =>
+            ball >= 86 ? "A'lo" :
+            ball >= 71 ? "Yaxshi" :
+            ball >= 56 ? "Qoniqarli" : "Qoniqarsiz";
+
+        // Jadvalni ko'rsatish
+        function jadvalKorsat(royxat) {
+            const jadval = document.getElementById("jadval");
+            jadval.innerHTML = royxat.map((t, i) =>
+                `<tr>
+                    <td>${i + 1}</td>
+                    <td>${t.ism}</td>
+                    <td>${t.ball}</td>
+                    <td>${baho(t.ball)}</td>
+                </tr>`
+            ).join("");
+        }
+
+        // Statistika
+        function statistika(royxat) {
+            const jami = royxat.reduce((s, t) => s + t.ball, 0);
+            const ortacha = (jami / royxat.length).toFixed(1);
+            const eng_yuqori = Math.max(...royxat.map(t => t.ball));
+            const eng_past = Math.min(...royxat.map(t => t.ball));
+
+            document.getElementById("stats").innerHTML =
+                `<strong>Jami:</strong> ${royxat.length} ta talaba |
+                 <strong>O'rtacha ball:</strong> ${ortacha} |
+                 <strong>Eng yuqori:</strong> ${eng_yuqori} |
+                 <strong>Eng past:</strong> ${eng_past}`;
+        }
+
+        function hammasiniKorsat() {
+            jadvalKorsat(talabalar);
+            statistika(talabalar);
+        }
+
+        function aloTalabalar() {
+            const alochilar = talabalar.filter(t => t.ball >= 86);
+            jadvalKorsat(alochilar);
+            statistika(alochilar);
+        }
+
+        function saralash() {
+            const saralangan = [...talabalar].sort((a, b) => b.ball - a.ball);
+            jadvalKorsat(saralangan);
+            statistika(saralangan);
+        }
+
+        // Boshlang'ich ko'rinish
+        hammasiniKorsat();
+    </script>
+</body>
+</html>

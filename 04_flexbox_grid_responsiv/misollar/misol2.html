@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 4-bob: CSS Grid — sahifa joylashuvi -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+
+        /* Oddiy grid */
+        .grid-basic {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .grid-item {
+            background-color: #1565c0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Sahifa joylashuvi */
+        .page-layout {
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "nav    main   aside"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 200px;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            min-height: 400px;
+            margin: 20px 0;
+        }
+        .page-layout > * {
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .g-header { grid-area: header; background-color: #1565c0; color: white; }
+        .g-nav    { grid-area: nav;    background-color: #bbdefb; }
+        .g-main   { grid-area: main;   background-color: #e3f2fd; }
+        .g-aside  { grid-area: aside;  background-color: #bbdefb; }
+        .g-footer { grid-area: footer; background-color: #1565c0; color: white; }
+
+        h2 { color: #1565c0; }
+    </style>
+</head>
+<body>
+    <h1>CSS Grid</h1>
+
+    <h2>1. Oddiy 3 ustunli grid</h2>
+    <div class="grid-basic">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+    </div>
+
+    <h2>2. Sahifa joylashuvi (grid-template-areas)</h2>
+    <div class="page-layout">
+        <div class="g-header"><strong>Header</strong></div>
+        <div class="g-nav">
+            <strong>Nav</strong>
+            <ul>
+                <li>Bosh sahifa</li>
+                <li>Haqida</li>
+                <li>Aloqa</li>
+            </ul>
+        </div>
+        <div class="g-main">
+            <strong>Main</strong>
+            <p>Asosiy kontent shu yerda joylashadi.</p>
+        </div>
+        <div class="g-aside">
+            <strong>Aside</strong>
+            <p>Yon panel</p>
+        </div>
+        <div class="g-footer"><strong>Footer</strong></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <!-- 4-bob: Flexbox — asosiy xususiyatlar -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox asoslari</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h2 { color: #1565c0; margin-top: 30px; }
+
+        .flex-container {
+            display: flex;
+            background-color: #e3f2fd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            min-height: 80px;
+        }
+        .flex-item {
+            background-color: #1565c0;
+            color: white;
+            padding: 15px 25px;
+            margin: 5px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* justify-content turlari */
+        .jc-start   { justify-content: flex-start; }
+        .jc-center  { justify-content: center; }
+        .jc-end     { justify-content: flex-end; }
+        .jc-between { justify-content: space-between; }
+        .jc-around  { justify-content: space-around; }
+
+        /* align-items turlari */
+        .ai-stretch { align-items: stretch; min-height: 120px; }
+        .ai-center  { align-items: center; min-height: 120px; }
+
+        /* flex-direction */
+        .fd-column  { flex-direction: column; }
+
+        /* flex-wrap */
+        .fw-wrap    { flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+    <h1>Flexbox asoslari</h1>
+
+    <h2>justify-content: flex-start</h2>
+    <div class="flex-container jc-start">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>justify-content: center</h2>
+    <div class="flex-container jc-center">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>justify-content: space-between</h2>
+    <div class="flex-container jc-between">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>justify-content: space-around</h2>
+    <div class="flex-container jc-around">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>align-items: center</h2>
+    <div class="flex-container ai-center">
+        <div class="flex-item" style="padding: 10px;">Kichik</div>
+        <div class="flex-item" style="padding: 30px;">Katta</div>
+        <div class="flex-item" style="padding: 15px;">O'rta</div>
+    </div>
+
+    <h2>flex-direction: column</h2>
+    <div class="flex-container fd-column" style="width: 200px;">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+    </div>
+
+    <h2>flex-wrap: wrap</h2>
+    <div class="flex-container fw-wrap">
+        <div class="flex-item" style="min-width: 200px;">Element 1</div>
+        <div class="flex-item" style="min-width: 200px;">Element 2</div>
+        <div class="flex-item" style="min-width: 200px;">Element 3</div>
+        <div class="flex-item" style="min-width: 200px;">Element 4</div>
+        <div class="flex-item" style="min-width: 200px;">Element 5</div>
+    </div>
+</body>
+</html>
